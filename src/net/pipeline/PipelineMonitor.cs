@@ -1,7 +1,9 @@
 ﻿using System;
 using RestSharp;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Net;
+using System.Web;
 using System.Threading;
 using WinLauncher.src.net.events.impl;
 using WinLauncher.src.net.events.data;
@@ -52,7 +54,7 @@ namespace WinLauncher.src.net.pipeline
                 {
                     var construct = outgoingQueue.Dequeue();
                     var webRequest = construct.Item1;
-                    webRequest.AddHeader("client-token", Settings.BAKSERV_TOKEN);
+                    webRequest.AddHeader("client-token", App.launcherClientToken);
                     webRequest.AddHeader("user-agent", "WinInstaller");
                     unresolvedOutgoing++;
 
@@ -60,17 +62,19 @@ namespace WinLauncher.src.net.pipeline
                     switch (webRequest.Method)
                     {
                         case Method.Get:
-                            response = await Client.GetAsync(webRequest);
+                            response = await Client.ExecuteAsync(webRequest);
                             break;
                         case Method.Post:
                             response = await Client.PostAsync(webRequest);
                             break;
                     }
 
+                    
                     if (response != null)
                     {
                         this.AddIncomming(response, construct.Item2);
                         unresolvedOutgoing--;
+                        Console.WriteLine(unresolvedOutgoing + "");
                     }
                 }
 

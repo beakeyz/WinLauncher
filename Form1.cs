@@ -18,7 +18,9 @@ namespace WinLauncher
 
         public WinLauncher(App parent)
         {
-            this.parent = parent;
+            if (parent != null)
+                this.parent = parent;
+
             InitializeComponent();
             this.statusUpdateLabel.Visible = false;
             this.statusUpdateLabel.Text = "";
@@ -35,7 +37,8 @@ namespace WinLauncher
 
         private void btnInstall_Click(object sender, EventArgs e)
         {
-            this.parent.HandleDownload();
+            if (parent != null)
+                this.parent.HandleDownload();
         }
 
         // Event to track the progress

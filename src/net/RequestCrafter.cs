@@ -35,7 +35,6 @@ namespace WinLauncher.src.net
             this.parent.PipelineMonitor.AddOutgoing(request, callback);
         }
 
-
         [EventTarget]
         public void EventTest(Event e)
         {

@@ -17,6 +17,7 @@ namespace WinLauncher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new WinLauncher(null));
             App app = new App();
             Application.Run(app.launcher);
 

@@ -1,4 +1,11 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using IWshRuntimeLibrary;
+using WinLauncher.src;
+
 namespace WinLauncher
 {
     partial class WinLauncher
@@ -38,7 +45,6 @@ namespace WinLauncher
             this.btnDefaultDir = new System.Windows.Forms.CheckBox();
             this.btnDirChoose = new System.Windows.Forms.Button();
             this.dirChoice = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -46,7 +52,6 @@ namespace WinLauncher
             this.statusUpdateLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,7 +85,7 @@ namespace WinLauncher
             this.appTitle.BackColor = System.Drawing.Color.Transparent;
             this.appTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.appTitle.Location = new System.Drawing.Point(12, 8);
+            this.appTitle.Location = new System.Drawing.Point(12, 13);
             this.appTitle.Name = "appTitle";
             this.appTitle.Size = new System.Drawing.Size(238, 33);
             this.appTitle.TabIndex = 2;
@@ -91,7 +96,7 @@ namespace WinLauncher
             this.appSubLabel.AutoSize = true;
             this.appSubLabel.BackColor = System.Drawing.Color.Transparent;
             this.appSubLabel.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appSubLabel.Location = new System.Drawing.Point(13, 41);
+            this.appSubLabel.Location = new System.Drawing.Point(13, 46);
             this.appSubLabel.Name = "appSubLabel";
             this.appSubLabel.Size = new System.Drawing.Size(443, 25);
             this.appSubLabel.TabIndex = 3;
@@ -127,28 +132,13 @@ namespace WinLauncher
             // btnDirChoose
             // 
             this.btnDirChoose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDirChoose.Location = new System.Drawing.Point(17, 96);
+            this.btnDirChoose.Location = new System.Drawing.Point(19, 84);
             this.btnDirChoose.Name = "btnDirChoose";
             this.btnDirChoose.Size = new System.Drawing.Size(169, 32);
             this.btnDirChoose.TabIndex = 5;
             this.btnDirChoose.Text = "choose Directory";
             this.btnDirChoose.UseVisualStyleBackColor = true;
             this.btnDirChoose.Click += new System.EventHandler(this.btnDirChoose_Click);
-            // 
-            // dirChoice
-            // 
-            this.dirChoice.SelectedPath = "C:\\";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.ImageLocation = "C:\\Users\\Joost\\source\\repos\\WinLauncher\\assets\\background.jpg";
-            this.pictureBox1.Location = new System.Drawing.Point(222, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(479, 335);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -220,21 +210,19 @@ namespace WinLauncher
             // WinLauncher
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(93)))), ((int)(((byte)(98)))));
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(692, 450);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.InstallationProgressBar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WinLauncher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WinLauncher";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -248,13 +236,12 @@ namespace WinLauncher
         #endregion
 
         private System.Windows.Forms.Button btnInstall;
-        private System.Windows.Forms.ProgressBar InstallationProgressBar;
+        public System.Windows.Forms.ProgressBar InstallationProgressBar;
         private System.Windows.Forms.Label appTitle;
         private System.Windows.Forms.Label appSubLabel;
-        private System.Windows.Forms.CheckBox shortcutCheckbox;
+        public System.Windows.Forms.CheckBox shortcutCheckbox;
         private System.Windows.Forms.CheckBox btnDefaultDir;
         private System.Windows.Forms.Button btnDirChoose;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label statusUpdateLabel;
