@@ -47,14 +47,16 @@ namespace WinLauncher
             this.dirChoice = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.statusUpdateLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.statusUpdateLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.box_one = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.box_one.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInstall
@@ -105,9 +107,11 @@ namespace WinLauncher
             // shortcutCheckbox
             // 
             this.shortcutCheckbox.AutoSize = true;
+            this.shortcutCheckbox.Checked = true;
+            this.shortcutCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.shortcutCheckbox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.shortcutCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shortcutCheckbox.Location = new System.Drawing.Point(19, 38);
+            this.shortcutCheckbox.Location = new System.Drawing.Point(4, 20);
             this.shortcutCheckbox.Name = "shortcutCheckbox";
             this.shortcutCheckbox.Size = new System.Drawing.Size(169, 17);
             this.shortcutCheckbox.TabIndex = 4;
@@ -121,7 +125,7 @@ namespace WinLauncher
             this.btnDefaultDir.CheckState = System.Windows.Forms.CheckState.Checked;
             this.btnDefaultDir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDefaultDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDefaultDir.Location = new System.Drawing.Point(19, 61);
+            this.btnDefaultDir.Location = new System.Drawing.Point(4, 42);
             this.btnDefaultDir.Name = "btnDefaultDir";
             this.btnDefaultDir.Size = new System.Drawing.Size(144, 17);
             this.btnDefaultDir.TabIndex = 6;
@@ -132,11 +136,11 @@ namespace WinLauncher
             // btnDirChoose
             // 
             this.btnDirChoose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDirChoose.Location = new System.Drawing.Point(19, 84);
+            this.btnDirChoose.Location = new System.Drawing.Point(147, 42);
             this.btnDirChoose.Name = "btnDirChoose";
-            this.btnDirChoose.Size = new System.Drawing.Size(169, 32);
+            this.btnDirChoose.Size = new System.Drawing.Size(74, 26);
             this.btnDirChoose.TabIndex = 5;
-            this.btnDirChoose.Text = "choose Directory";
+            this.btnDirChoose.Text = "Browse . . .";
             this.btnDirChoose.UseVisualStyleBackColor = true;
             this.btnDirChoose.Click += new System.EventHandler(this.btnDirChoose_Click);
             // 
@@ -153,15 +157,25 @@ namespace WinLauncher
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.statusUpdateLabel);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.shortcutCheckbox);
-            this.panel2.Controls.Add(this.btnDefaultDir);
-            this.panel2.Controls.Add(this.btnDirChoose);
+            this.panel2.Controls.Add(this.box_one);
             this.panel2.Location = new System.Drawing.Point(-4, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 371);
             this.panel2.TabIndex = 9;
+            // 
+            // statusUpdateLabel
+            // 
+            this.statusUpdateLabel.AutoSize = true;
+            this.statusUpdateLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.statusUpdateLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.statusUpdateLabel.Location = new System.Drawing.Point(16, 316);
+            this.statusUpdateLabel.Name = "statusUpdateLabel";
+            this.statusUpdateLabel.Size = new System.Drawing.Size(49, 15);
+            this.statusUpdateLabel.TabIndex = 6;
+            this.statusUpdateLabel.Text = "<status>";
             // 
             // panel5
             // 
@@ -179,20 +193,9 @@ namespace WinLauncher
             this.panel4.Size = new System.Drawing.Size(247, 5);
             this.panel4.TabIndex = 7;
             // 
-            // statusUpdateLabel
-            // 
-            this.statusUpdateLabel.AutoSize = true;
-            this.statusUpdateLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.statusUpdateLabel.Location = new System.Drawing.Point(3, 6);
-            this.statusUpdateLabel.Name = "statusUpdateLabel";
-            this.statusUpdateLabel.Size = new System.Drawing.Size(47, 13);
-            this.statusUpdateLabel.TabIndex = 6;
-            this.statusUpdateLabel.Text = "<status>";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.statusUpdateLabel);
             this.panel3.Controls.Add(this.btnInstall);
             this.panel3.Location = new System.Drawing.Point(241, 348);
             this.panel3.Name = "panel3";
@@ -207,10 +210,22 @@ namespace WinLauncher
             this.panel6.Size = new System.Drawing.Size(458, 5);
             this.panel6.TabIndex = 8;
             // 
+            // box_one
+            // 
+            this.box_one.Controls.Add(this.shortcutCheckbox);
+            this.box_one.Controls.Add(this.btnDefaultDir);
+            this.box_one.Controls.Add(this.btnDirChoose);
+            this.box_one.Location = new System.Drawing.Point(9, 16);
+            this.box_one.Name = "box_one";
+            this.box_one.Size = new System.Drawing.Size(227, 74);
+            this.box_one.TabIndex = 8;
+            this.box_one.TabStop = false;
+            this.box_one.Text = "default settings";
+            // 
             // WinLauncher
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.DarkRed;
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 450);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.InstallationProgressBar);
@@ -228,7 +243,8 @@ namespace WinLauncher
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.box_one.ResumeLayout(false);
+            this.box_one.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,6 +266,7 @@ namespace WinLauncher
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.FolderBrowserDialog dirChoice;
+        private System.Windows.Forms.GroupBox box_one;
     }
 }
 

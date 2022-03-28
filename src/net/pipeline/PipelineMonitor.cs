@@ -34,7 +34,8 @@ namespace WinLauncher.src.net.pipeline
             this.Client = new RestClient(Settings.SERVER_ADR);
             this.unresolvedOutgoing = 0;
 
-            this.requestPipelineThread = new Thread(new ThreadStart(this.RunPipelineCheck));
+
+            this.requestPipelineThread = new Thread(new ThreadStart(delegate { this.RunPipelineCheck(); }));
             this.requestPipelineThread.Start();
         }
 

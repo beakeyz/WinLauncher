@@ -16,10 +16,11 @@ namespace WinLauncher
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new WinLauncher(null));
             App app = new App();
-            Application.Run(app.launcher);
+            Application.Run(app.welcomeScreen);
+            if (!app.welcomeScreen.tryingShutdown) Application.Run(app.launcher);
 
             app.AppShutdown();
             Console.WriteLine("Exiting...");
